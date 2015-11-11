@@ -2527,6 +2527,9 @@ PyInit_select(void)
 #endif
     PyModule_AddIntConstant(m, "KQ_FILTER_SIGNAL", EVFILT_SIGNAL);
     PyModule_AddIntConstant(m, "KQ_FILTER_TIMER", EVFILT_TIMER);
+#ifdef EVFILT_USER
+    PyModule_AddIntConstant(m, "KQ_FILTER_USER", EVFILT_USER);
+#endif
 
     /* event flags */
     PyModule_AddIntConstant(m, "KQ_EV_ADD", EV_ADD);
@@ -2570,6 +2573,17 @@ PyInit_select(void)
     PyModule_AddIntConstant(m, "KQ_NOTE_LINKUP", NOTE_LINKUP);
     PyModule_AddIntConstant(m, "KQ_NOTE_LINKDOWN", NOTE_LINKDOWN);
     PyModule_AddIntConstant(m, "KQ_NOTE_LINKINV", NOTE_LINKINV);
+#endif
+
+    /* USER filter flags */
+#ifdef EVFILT_USER
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFNOP", NOTE_FFNOP);
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFAND", NOTE_FFAND);
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFOR", NOTE_FFOR);
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFCOPY", NOTE_FFCOPY);
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFCTRLMASK", NOTE_FFCTRLMASK);
+    PyModule_AddIntConstant(m, "KQ_NOTE_FFLAGSMASK", NOTE_FFLAGSMASK);
+    PyModule_AddIntConstant(m, "KQ_NOTE_TRIGGER", NOTE_TRIGGER);
 #endif
 
 #endif /* HAVE_KQUEUE */

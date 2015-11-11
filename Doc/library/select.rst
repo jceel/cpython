@@ -509,6 +509,8 @@ http://www.freebsd.org/cgi/man.cgi?query=kqueue&sektion=2
    +---------------------------+---------------------------------------------+
    | :const:`KQ_FILTER_TIMER`  | Establishes an arbitrary timer              |
    +---------------------------+---------------------------------------------+
+   | :const:`KQ_FILTER_USER`   | User-defined events                         |
+   +---------------------------+---------------------------------------------+
 
 .. attribute:: kevent.flags
 
@@ -606,6 +608,25 @@ http://www.freebsd.org/cgi/man.cgi?query=kqueue&sektion=2
    | :const:`KQ_NOTE_LINKINV`   | link state is invalid                      |
    +----------------------------+--------------------------------------------+
 
+   :const:`KQ_FILTER_USER` filter flags
+
+   +----------------------------+--------------------------------------------+
+   | Constant                   | Meaning                                    |
+   +============================+============================================+
+   | :const:`KQ_NOTE_FFNOP`     | ignore the input fflags                    |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_FFAND`     | bitwise AND fflags                         |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_FFOR`      | bitwise OR fflags                          |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_FFCOPY`    | copy fflags                                |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_FFCTRLMASK`| control mask for fflags                    |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_FFLAGSMASK`| user defined flag mask for fflags          |
+   +----------------------------+--------------------------------------------+
+   | :const:`KQ_NOTE_TRIGGER`   | cause the event to be triggered            |
+   +----------------------------+--------------------------------------------+
 
 .. attribute:: kevent.data
 
